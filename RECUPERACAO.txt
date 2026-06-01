@@ -1,0 +1,5 @@
+﻿Recuperado em 2026-05-29.
+Base principal: C:\Users\User\Desktop\OrbitCast-frontend (3)
+Arquivos de configuracao ausentes completados de: C:\Users\User\Desktop\OrbitCast-frontend (1)
+node_modules e .vite nao foram incluidos; rode npm install se precisar abrir o projeto para desenvolvimento.
+
