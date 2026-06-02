@@ -58,7 +58,15 @@ npm install
 
 ```bash
 cp .env.example .env
-# Edite .env: VITE_API_URL=https://sua-api.com
+# API Java local, na pasta C:\Users\User\Desktop\OrbitCast
+VITE_API_URL=http://localhost:8080
+```
+
+Antes de abrir o front-end, suba o backend Java em outro terminal:
+
+```bash
+cd ../OrbitCast
+mvn quarkus:dev
 ```
 
 ### Desenvolvimento

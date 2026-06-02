@@ -4,20 +4,30 @@ import type {
   CampanhaFormData, RegiaoFormData, CampanhaRegiaoInput
 } from '../types';
 
-const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080';
+export const API_BASE_URL = (import.meta.env.VITE_API_URL || 'http://localhost:8080')
+  .replace(/\/+$/, '');
 
 // Generic fetch helper
 async function apiFetch<T>(path: string, options?: RequestInit): Promise<T> {
-  const url = `${BASE_URL}${path}`;
+  const normalizedPath = path.startsWith('/') ? path : `/${path}`;
+  const url = `${API_BASE_URL}${normalizedPath}`;
   const headers = new Headers(options?.headers);
   if (options?.body && !headers.has('Content-Type')) {
     headers.set('Content-Type', 'application/json');
   }
 
-  const response = await fetch(url, {
-    ...options,
-    headers,
-  });
+  let response: Response;
+  try {
+    response = await fetch(url, {
+      ...options,
+      headers,
+    });
+  } catch {
+    throw new Error(
+      `Nao foi possivel conectar com a API em ${API_BASE_URL}. ` +
+      'Confira se o backend Java esta rodando com mvn quarkus:dev.'
+    );
+  }
 
   if (!response.ok) {
     let errorMsg = `Erro ${response.status}: ${response.statusText}`;
