@@ -3,9 +3,10 @@ import PublicLayout from '../layouts/PublicLayout';
 import type { IntegranteType } from '../types';
 
 const integrantes: IntegranteType[] = [
-  { nome:'Nome do Integrante 1', rm:'RM12345', turma:'1TDSPH', foto:'', github:'https://github.com/usuario1', linkedin:'https://linkedin.com/in/usuario1', role:'Front-End Developer' },
-  { nome:'Nome do Integrante 2', rm:'RM12346', turma:'1TDSPH', foto:'', github:'https://github.com/usuario2', linkedin:'https://linkedin.com/in/usuario2', role:'Back-End Developer' },
-  { nome:'Nome do Integrante 3', rm:'RM12347', turma:'1TDSPH', foto:'', github:'https://github.com/usuario3', linkedin:'https://linkedin.com/in/usuario3', role:'Full Stack Developer' },
+  { nome:'Gabriel Stuani', rm:'RM566682', turma:'1TDSPB', foto:'/img/gabriel.jpg', github:'https://github.com/Gstuani', linkedin:'https://www.linkedin.com/in/gabrielstuani/', role:'Desenvolvedor Front-End' },
+  { nome:'Guilherme Soares', rm:'RM568227', turma:'1TDSPB', foto:'/img/guilherme.jpeg', github:'https://github.com/Guilherme-Soares00', linkedin:'https://www.linkedin.com/in/guilherme-soares-alberti/', role:'Desenvolvedor Front-End' },
+  { nome:'Erick Ramos Santos', rm:'RM567837', turma:'1TDSPB', foto:'/img/erick.jpeg', github:'https://github.com/erickramossantoser', linkedin:'https://www.linkedin.com/in/erickrsantos/', role:'Desenvolvedor Front-End' },
+  { nome:'Matheus Carneiro Maciel', rm:'RM567753', turma:'1TDSPB', foto:'', github:'https://github.com/kakarneiro', linkedin:'https://www.linkedin.com/in/matheus-carneiro-maciel?trk=contact-info', role:'Desenvolvedor Front-End' },
 ];
 
 function Avatar({ name }: { name: string }) {

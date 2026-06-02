@@ -108,11 +108,12 @@ npm run build
 
 ## 👥 Integrantes
 
-| Nome | RM | Turma | GitHub | LinkedIn |
-|---|---|---|---|---|
-| Integrante 1 | RM12345 | 1TDSPH | [github.com/usuario1](https://github.com/usuario1) | [linkedin.com/in/usuario1](https://linkedin.com/in/usuario1) |
-| Integrante 2 | RM12346 | 1TDSPH | [github.com/usuario2](https://github.com/usuario2) | [linkedin.com/in/usuario2](https://linkedin.com/in/usuario2) |
-| Integrante 3 | RM12347 | 1TDSPH | [github.com/usuario3](https://github.com/usuario3) | [linkedin.com/in/usuario3](https://linkedin.com/in/usuario3) |
+| Foto | Nome Completo | RM | Turma | GitHub | LinkedIn |
+|:----:|:-------------:|:--:|:-----:|:------:|:--------:|
+| <img src="./public/img/gabriel.jpg" width="80"> | **Gabriel Stuani** | RM566682 | 1TDSPB | [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github)](https://github.com/Gstuani) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin)](https://www.linkedin.com/in/gabrielstuani/) |
+| <img src="./public/img/guilherme.jpeg" width="80"> | **Guilherme Soares** | RM568227 | 1TDSPB | [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github)](https://github.com/Guilherme-Soares00) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin)](https://www.linkedin.com/in/guilherme-soares-alberti/) |
+| <img src="./public/img/erick.jpeg" width="80"> | **Erick Ramos Santos** | RM567837 | 1TDSPB | [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github)](https://github.com/erickramossantoser) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin)](https://www.linkedin.com/in/erickrsantos/) |
+| Sem foto | **Matheus Carneiro Maciel** | RM567753 | 1TDSPB | [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github)](https://github.com/kakarneiro) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin)](https://www.linkedin.com/in/matheus-carneiro-maciel?trk=contact-info) |
 
 ---
 
