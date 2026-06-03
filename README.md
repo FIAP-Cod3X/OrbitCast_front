@@ -58,15 +58,21 @@ npm install
 
 ```bash
 cp .env.example .env
-# API Java local, na pasta C:\Users\User\Desktop\OrbitCast
-VITE_API_URL=http://localhost:8080
+# API Java publicada no Render
+VITE_API_URL=https://orbitcast.onrender.com
 ```
 
-Antes de abrir o front-end, suba o backend Java em outro terminal:
+Se quiser rodar a API localmente em vez do Render, suba o backend Java em outro terminal:
 
 ```bash
 cd ../OrbitCast
 mvn quarkus:dev
+```
+
+Depois altere o `.env` para:
+
+```bash
+VITE_API_URL=http://localhost:8080
 ```
 
 ### Desenvolvimento
