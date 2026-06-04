@@ -5,16 +5,16 @@ import PublicLayout from '../layouts/PublicLayout';
 /* Canvas star field + nebula are done with CSS/SVG — no canvas needed */
 
 const stats = [
-  { value: '500+', label: 'Regiões Mapeadas' },
-  { value: '98.7%', label: 'Precisão na Simulação' },
-  { value: '120M', label: 'Pessoas Alcançadas' },
-  { value: 'R$ 2B+', label: 'Orçamentos Otimizados' },
+  { value: '18', label: 'Regiões cadastradas' },
+  { value: '6', label: 'Campanhas planejadas' },
+  { value: '10', label: 'Simulações registradas' },
+  { value: '6,2M', label: 'Alcance estimado total' },
 ];
 
 const features = [
   { icon: <Zap size={22} />, title: 'Simulação em Tempo Real', desc: 'Calcule custo, alcance e viabilidade de transmissões por satélite instantaneamente.', color: '#f6ad55' },
-  { icon: <Brain size={22} />, title: 'Recomendações com IA', desc: 'Algoritmos inteligentes sugerem a melhor estratégia de cobertura para cada região.', color: '#b794f4' },
-  { icon: <Globe size={22} />, title: 'Cobertura Nacional', desc: 'Mapeamento completo de todas as regiões do Brasil com índices de conectividade.', color: '#4a9eff' },
+  { icon: <Brain size={22} />, title: 'Recomendações de Viabilidade', desc: 'A API gera recomendações com base em custo, alcance, qualidade de sinal e regiões associadas.', color: '#b794f4' },
+  { icon: <Globe size={22} />, title: 'Regiões Cadastradas', desc: 'Base com regiões brasileiras, população estimada, prioridade social e índice de conectividade.', color: '#4a9eff' },
   { icon: <Shield size={22} />, title: 'Score de Viabilidade', desc: 'Análise detalhada de custo-benefício com classificação Alta, Média ou Baixa.', color: '#68d391' },
   { icon: <BarChart3 size={22} />, title: 'Dashboard Analítico', desc: 'Métricas completas, gráficos interativos e rankings de campanhas em tempo real.', color: '#63b3ed' },
   { icon: <Radio size={22} />, title: 'Multi-qualidade', desc: 'Suporte a SD, HD, Full HD e 4K com cálculo de custo diferenciado por qualidade.', color: '#fc8181' },
