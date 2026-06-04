@@ -1,36 +1,4 @@
 import { useState, useEffect, useCallback } from 'react';
-import type { LoadingState } from '../types';
-
-// Generic fetch hook
-export function useFetch<T>(
-  fetchFn: () => Promise<T>,
-  deps: unknown[] = []
-) {
-  const [data, setData] = useState<T | null>(null);
-  const [loading, setLoading] = useState<LoadingState>('idle');
-  const [error, setError] = useState<string | null>(null);
-
-  const execute = useCallback(async () => {
-    setLoading('loading');
-    setError(null);
-    try {
-      const result = await fetchFn();
-      setData(result);
-      setLoading('success');
-    } catch (err) {
-      const msg = err instanceof Error ? err.message : 'Erro desconhecido';
-      setError(msg);
-      setLoading('error');
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, deps);
-
-  useEffect(() => {
-    execute();
-  }, [execute]);
-
-  return { data, loading, error, refetch: execute };
-}
 
 // Debounce hook for search
 export function useDebounce<T>(value: T, delay: number): T {

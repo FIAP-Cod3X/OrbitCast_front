@@ -9,7 +9,9 @@ const links = [
   { to: '/regioes', label: 'Regiões' },
   { to: '/simulacao', label: 'Simulação' },
   { to: '/sobre', label: 'Sobre' },
+  { to: '/faq', label: 'FAQ' },
   { to: '/integrantes', label: 'Integrantes' },
+  { to: '/contato', label: 'Contato' },
 ];
 
 export default function Navbar() {
@@ -106,13 +108,13 @@ export default function Navbar() {
           display: grid;
           grid-template-columns: minmax(160px, 1fr) auto minmax(160px, 1fr);
           align-items: center;
-          gap: 32px;
+          gap: 18px;
         }
 
         .navbar-inner > nav { justify-self: center; }
         .navbar-inner > div:last-child { justify-self: end; }
 
-        @media (max-width: 900px) {
+        @media (max-width: 1100px) {
           .navbar-inner {
             display: flex;
             justify-content: space-between;

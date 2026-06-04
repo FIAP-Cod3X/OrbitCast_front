@@ -8,7 +8,7 @@ import {
 } from '../components/ui';
 import { campanhasApi, clientesApi, canaisApi } from '../services/api';
 import type { CampanhaTransmissao, CampanhaFormData, Cliente, Canal, QualidadeDesejada, StatusCampanha } from '../types';
-import { useToast } from '../context/ToastContext';
+import { useToast } from '../context/useToast';
 
 const defaultForm: CampanhaFormData = {
   clienteId: 0, canalId: 0, nome: '', descricao: '',

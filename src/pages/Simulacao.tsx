@@ -5,7 +5,7 @@ import DashboardLayout from '../layouts/DashboardLayout';
 import { Button, Select, Input, Card, Loading, ViabilidadeBadge, ScoreRing, SectionHeader } from '../components/ui';
 import { campanhasApi, regioesApi } from '../services/api';
 import type { CampanhaTransmissao, Regiao, Simulacao } from '../types';
-import { useToast } from '../context/ToastContext';
+import { useToast } from '../context/useToast';
 
 type ChartPayload = { value?: string | number };
 type ChartTooltipProps = { active?: boolean; payload?: ChartPayload[]; label?: string | number };
