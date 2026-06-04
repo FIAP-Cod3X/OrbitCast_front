@@ -4,6 +4,7 @@ import type { IntegranteType } from '../types';
 
 type TeamMember = IntegranteType & {
   foco: string;
+  descricao: string;
 };
 
 const integrantes: TeamMember[] = [
@@ -16,6 +17,7 @@ const integrantes: TeamMember[] = [
     linkedin: 'https://www.linkedin.com/in/gabrielstuani/',
     role: 'Front-End Developer',
     foco: 'Interface e experiencia',
+    descricao: 'Atua na composicao visual das telas publicas e na consistencia dos fluxos de navegacao.',
   },
   {
     nome: 'Guilherme Soares',
@@ -26,6 +28,7 @@ const integrantes: TeamMember[] = [
     linkedin: 'https://www.linkedin.com/in/guilherme-soares-alberti/',
     role: 'Front-End Developer',
     foco: 'Componentes e responsividade',
+    descricao: 'Organiza componentes reutilizaveis e garante que a experiencia funcione bem em diferentes tamanhos de tela.',
   },
   {
     nome: 'Erick Ramos Santos',
@@ -36,6 +39,7 @@ const integrantes: TeamMember[] = [
     linkedin: 'https://www.linkedin.com/in/erickrsantos/',
     role: 'Front-End Developer',
     foco: 'Integracao e dados',
+    descricao: 'Conecta o front-end com a API Java e cuida dos fluxos de dados usados nas simulacoes e dashboards.',
   },
   {
     nome: 'Matheus Carneiro Maciel',
@@ -46,6 +50,7 @@ const integrantes: TeamMember[] = [
     linkedin: 'https://www.linkedin.com/in/matheus-carneiro-maciel?trk=contact-info',
     role: 'Front-End Developer',
     foco: 'Documentacao e qualidade',
+    descricao: 'Apoia a organizacao da entrega, validacao das informacoes e acabamento das areas institucionais.',
   },
 ];
 
@@ -81,13 +86,13 @@ export default function IntegrantesPage() {
           </div>
         </section>
 
-        <section className="grid grid-cols-[repeat(auto-fit,minmax(230px,1fr))] gap-4">
+        <section className="mx-auto grid max-w-[900px] grid-cols-1 gap-4 sm:grid-cols-2">
           {integrantes.map((integrante, index) => (
             <article
               key={integrante.rm}
               className={`group overflow-hidden rounded-[8px] border border-[var(--border)] bg-[var(--bg-card)] transition-all duration-300 hover:-translate-y-1 hover:border-[rgba(74,158,255,0.36)] hover:shadow-[0_18px_60px_rgba(0,0,0,0.28)] anim-fade-up delay-${index + 1}`}
             >
-              <div className="relative aspect-[4/3] overflow-hidden bg-[var(--bg)]">
+              <div className="relative aspect-[16/11] overflow-hidden bg-[var(--bg)]">
                 <img
                   src={integrante.foto}
                   alt={integrante.nome}
@@ -104,16 +109,21 @@ export default function IntegrantesPage() {
                 </div>
               </div>
 
-              <div className="p-5">
-                <div className="mb-5 min-h-[112px]">
-                  <p className="mb-1 text-xs font-bold uppercase tracking-[0.08em] text-[var(--accent)]">
-                    {integrante.role}
-                  </p>
-                  <h2 className="mb-3 font-display text-xl font-bold leading-tight text-white">
+              <div className="p-5 sm:p-6">
+                <div className="mb-5 min-h-[156px]">
+                  <div className="mb-3 flex flex-wrap items-center gap-2">
+                    <span className="rounded-[6px] border border-[rgba(74,158,255,0.22)] bg-[rgba(74,158,255,0.08)] px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.08em] text-[var(--accent)]">
+                      {integrante.role}
+                    </span>
+                    <span className="text-xs font-medium text-[var(--text-dim)]">
+                      {integrante.foco}
+                    </span>
+                  </div>
+                  <h2 className="mb-3 font-display text-[clamp(19px,2vw,24px)] font-bold leading-tight text-white">
                     {integrante.nome}
                   </h2>
-                  <p className="text-sm leading-6 text-[var(--text-dim)]">
-                    {integrante.foco}
+                  <p className="text-sm leading-6 text-[var(--text-dim)] sm:text-[15px]">
+                    {integrante.descricao}
                   </p>
                 </div>
 
@@ -144,7 +154,7 @@ export default function IntegrantesPage() {
           ))}
         </section>
 
-        <section className="mt-5 flex flex-col gap-4 rounded-[8px] border border-[var(--border)] bg-[var(--bg-card)] p-5 sm:flex-row sm:items-center sm:justify-between">
+        <section className="mx-auto mt-5 flex max-w-[900px] flex-col gap-4 rounded-[8px] border border-[var(--border)] bg-[var(--bg-card)] p-5 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <h3 className="font-display text-base font-bold text-white">
               Front-End Design Engineering + Domain Driven Design Using Java
