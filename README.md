@@ -41,7 +41,7 @@ O OrbitCast ajuda equipes de mídia, educação, eventos, governo e instituiçõ
 | Repositório Back-End | https://github.com/Guilherme-Soares00/OrbitCast-Global |
 | Deploy Vercel | https://orbitcast-front.vercel.app |
 | API Java Render | https://orbitcast-global-api.onrender.com |
-| Vídeo YouTube | Pendente: inserir URL após publicação |
+| Vídeo YouTube | https://www.youtube.com/watch?v=yu9X0oWYCMw |
 
 ### Instalação
 
