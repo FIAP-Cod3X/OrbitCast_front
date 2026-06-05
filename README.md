@@ -6,7 +6,7 @@ O projeto foi desenvolvido para a Global Solution FIAP 2025, integrando o front-
 
 ## Descricao
 
-O OrbitCast ajuda equipes de midia, educacao, eventos, governo e instituicoes sociais a planejar campanhas de transmissao via satelite. A aplicacao permite consultar regioes, cadastrar campanhas, associar regioes a campanhas, executar simulacoes e analisar indicadores de custo, alcance, qualidade de sinal e viabilidade.
+O OrbitCast ajuda equipes de midia, educacao, eventos, governo e instituicoes sociais a planejar campanhas de transmissao via satelite. A aplicacao permite consultar regioes, cadastrar campanhas, associar regioes a campanhas, executar simulacoes e analisar indicadores de custo, alcance, qualidade de sinal e viabilidade
 
 ## Funcionalidades
 
