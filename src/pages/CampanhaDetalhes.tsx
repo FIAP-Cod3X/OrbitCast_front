@@ -132,6 +132,7 @@ export default function CampanhaDetalhes() {
 
   const ultimaSim = simulacoes[0];
   const regioesDisponiveis = todasRegioes.filter(r => !regioes.some(associada => associada.id === r.id));
+  const connectivityClass = (value: number) => `connectivity-fill connectivity-${Math.max(0, Math.min(100, Math.round(value / 5) * 5))}`;
 
   if (loading) return <DashboardLayout><Loading message="Carregando campanha..." /></DashboardLayout>;
   if (error || !campanha) return (
@@ -349,10 +350,7 @@ export default function CampanhaDetalhes() {
                   </div>
                   <div className="mt-1">
                     <div className="h-1 bg-navy-border rounded-full overflow-hidden">
-                      <div
-                        className="h-full bg-gradient-to-r from-cyan-500 to-blue-500"
-                        style={{ width: `${Math.min(100, Number(r.indiceConectividade))}%` }}
-                      />
+                      <div className={connectivityClass(Number(r.indiceConectividade))} />
                     </div>
                   </div>
                   <Button

@@ -58,20 +58,19 @@ export function Textarea({ label, className='', ...p }: TaProps) {
   );
 }
 
-export function Card({ children, className='', style={} }: { children: ReactNode; className?: string; style?: React.CSSProperties }) {
-  return <div className={`card p-5 ${className}`} style={style}>{children}</div>;
+export function Card({ children, className='' }: { children: ReactNode; className?: string }) {
+  return <div className={`card p-5 ${className}`}>{children}</div>;
 }
 
 export function Modal({ open, onClose, title, children, size='md' }: {
   open: boolean; onClose: () => void; title: string; children: ReactNode; size?: 'sm'|'md'|'lg';
 }) {
   if (!open) return null;
-  const maxW = size === 'sm' ? 440 : size === 'lg' ? 760 : 580;
+  const sizeClass = size === 'sm' ? 'modal-sm' : size === 'lg' ? 'modal-lg' : 'modal-md';
   return (
     <div className="fixed inset-0 z-[200] flex items-center justify-center bg-black/70 p-4 backdrop-blur-md anim-fade-in" onClick={onClose}>
       <div
-        className="flex max-h-[90vh] w-full flex-col overflow-hidden rounded-[14px] border border-[var(--border)] bg-[var(--bg-card)] shadow-[0_24px_60px_rgba(0,0,0,0.5)] anim-fade-up"
-        style={{ maxWidth: maxW }}
+        className={`modal-panel ${sizeClass} flex max-h-[90vh] w-full flex-col overflow-hidden rounded-[14px] border border-[var(--border)] bg-[var(--bg-card)] shadow-[0_24px_60px_rgba(0,0,0,0.5)] anim-fade-up`}
         onClick={e => e.stopPropagation()}
       >
         <div className="flex items-center justify-between border-b border-[var(--border)] px-6 py-[18px]">
@@ -141,18 +140,17 @@ export function ViabilidadeBadge({ viabilidade }: { viabilidade: ViabilidadeTipo
   return <span className={c.cls}>{c.label}</span>;
 }
 
-const toastStyle: Record<ToastType, { icon: ReactNode; border: string; bg: string }> = {
-  success: { icon: <CheckCircle size={16} className="shrink-0 text-[var(--success)]" />, border: 'rgba(72,187,120,0.3)', bg: 'rgba(72,187,120,0.06)' },
-  error: { icon: <XCircle size={16} className="shrink-0 text-[var(--danger)]" />, border: 'rgba(252,129,129,0.3)', bg: 'rgba(252,129,129,0.06)' },
-  warning: { icon: <AlertTriangle size={16} className="shrink-0 text-[var(--warn)]" />, border: 'rgba(246,173,85,0.3)', bg: 'rgba(246,173,85,0.06)' },
-  info: { icon: <Info size={16} className="shrink-0 text-[var(--accent)]" />, border: 'rgba(74,158,255,0.3)', bg: 'rgba(74,158,255,0.06)' },
+const toastStyle: Record<ToastType, { icon: ReactNode; cls: string }> = {
+  success: { icon: <CheckCircle size={16} className="shrink-0 text-[var(--success)]" />, cls: 'toast-success' },
+  error: { icon: <XCircle size={16} className="shrink-0 text-[var(--danger)]" />, cls: 'toast-error' },
+  warning: { icon: <AlertTriangle size={16} className="shrink-0 text-[var(--warn)]" />, cls: 'toast-warning' },
+  info: { icon: <Info size={16} className="shrink-0 text-[var(--accent)]" />, cls: 'toast-info' },
 };
 export function ToastItem({ message, type, onClose }: { message: string; type: ToastType; onClose: () => void }) {
   const s = toastStyle[type];
   return (
     <div
-      className="flex min-w-[260px] max-w-[360px] items-center gap-2.5 rounded-[10px] bg-[color-mix(in_srgb,var(--bg-card)_95%,transparent)] px-4 py-3 shadow-[0_8px_24px_rgba(0,0,0,0.4)] backdrop-blur-xl anim-slide-right"
-      style={{ border: `1px solid ${s.border}` }}
+      className={`toast-item ${s.cls} flex min-w-[260px] max-w-[360px] items-center gap-2.5 rounded-[10px] bg-[color-mix(in_srgb,var(--bg-card)_95%,transparent)] px-4 py-3 shadow-[0_8px_24px_rgba(0,0,0,0.4)] backdrop-blur-xl anim-slide-right`}
     >
       {s.icon}
       <p className="flex-1 text-[13px] text-[var(--text-muted)]">{message}</p>
@@ -163,16 +161,16 @@ export function ToastItem({ message, type, onClose }: { message: string; type: T
   );
 }
 
-export function MetricCard({ label, value, icon, color='var(--accent)', subtitle }: {
-  label: string; value: string|number; icon: ReactNode; color?: string; subtitle?: string;
+export function MetricCard({ label, value, icon, tone='accent', subtitle }: {
+  label: string; value: string|number; icon: ReactNode; tone?: 'accent' | 'purple' | 'green' | 'yellow' | 'red'; subtitle?: string;
 }) {
   return (
-    <div className="card card-hover px-[22px] py-5">
+    <div className={`card card-hover metric-tone-${tone} px-[22px] py-5`}>
       <div className="mb-3.5 flex items-start justify-between">
         <span className="text-xs font-semibold uppercase tracking-[0.06em] text-[var(--text-dim)]">{label}</span>
-        <div className="opacity-70" style={{ color }}>{icon}</div>
+        <div className="metric-tone-color opacity-70">{icon}</div>
       </div>
-      <div className="metric-value" style={{ color }}>{value}</div>
+      <div className="metric-value metric-tone-color">{value}</div>
       {subtitle && <div className="mt-1.5 text-xs text-[var(--text-dim)]">{subtitle}</div>}
     </div>
   );
@@ -200,13 +198,15 @@ export function ScoreRing({ score, size=72 }: { score: number; size?: number }) 
   const circ = 2 * Math.PI * r;
   const offset = circ - (Math.min(100, score) / 100) * circ;
   const color = score >= 70 ? 'var(--success)' : score >= 40 ? 'var(--warn)' : 'var(--danger)';
+  const tone = score >= 70 ? 'score-good' : score >= 40 ? 'score-mid' : 'score-low';
+  const sizeClass = size >= 100 ? 'score-ring-lg' : size >= 90 ? 'score-ring-md' : size <= 56 ? 'score-ring-sm' : 'score-ring-base';
   return (
-    <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} style={{ flexShrink: 0 }}>
+    <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} className={`score-ring ${sizeClass} ${tone}`}>
       <circle cx={size/2} cy={size/2} r={r} fill="none" stroke="rgba(255,255,255,0.05)" strokeWidth="5" />
       <circle cx={size/2} cy={size/2} r={r} fill="none" stroke={color} strokeWidth="5"
         strokeDasharray={circ} strokeDashoffset={offset} strokeLinecap="round"
         transform={`rotate(-90 ${size/2} ${size/2})`}
-        style={{ transition: 'stroke-dashoffset 1s ease', filter: `drop-shadow(0 0 4px ${color})` }}
+        className="score-ring-value"
       />
       <text x="50%" y="52%" textAnchor="middle" dominantBaseline="middle"
         fill={color} fontSize={size/5} fontFamily="Space Grotesk,sans-serif" fontWeight="700">

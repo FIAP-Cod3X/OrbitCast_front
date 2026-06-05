@@ -172,9 +172,6 @@ O front-end usa `fetch()` diretamente, sem Axios, com:
 ## Imagens e Ícones
 
 - Fotos dos integrantes em `public/img/`.
-- Ícones SVG em `public/icons.svg`.
-- Favicon em `public/favicon.svg`.
-- Imagem de apoio em `src/assets/hero.png`.
 - Iconografia da interface com Lucide React.
 
 ## Integrantes

@@ -30,10 +30,11 @@ function prioridadeLabel(p: number) {
 
 function conectividade(idx: number) {
   const v = Number(idx);
-  if (v < 25) return { label: 'Muito Baixa', color: 'text-red-400', width: v };
-  if (v < 50) return { label: 'Baixa', color: 'text-orange-400', width: v };
-  if (v < 75) return { label: 'Média', color: 'text-yellow-400', width: v };
-  return { label: 'Alta', color: 'text-emerald-400', width: v };
+  const width = Math.max(0, Math.min(100, Math.round(v / 5) * 5));
+  if (v < 25) return { label: 'Muito Baixa', color: 'text-red-400', width };
+  if (v < 50) return { label: 'Baixa', color: 'text-orange-400', width };
+  if (v < 75) return { label: 'Média', color: 'text-yellow-400', width };
+  return { label: 'Alta', color: 'text-emerald-400', width };
 }
 
 export default function RegioesPage() {
@@ -213,10 +214,7 @@ export default function RegioesPage() {
                           <td className="px-4 py-3">
                             <div className="flex items-center gap-2">
                               <div className="w-20 h-1.5 bg-navy-border rounded-full overflow-hidden">
-                                <div
-                                  className="h-full rounded-full bg-gradient-to-r from-blue-600 to-cyan-400 transition-all"
-                                  style={{ width: `${Math.min(100, conn.width)}%` }}
-                                />
+                                <div className={`connectivity-fill connectivity-${conn.width}`} />
                               </div>
                               <span className={`text-xs font-rajdhani ${conn.color}`}>
                                 {Number(r.indiceConectividade).toFixed(0)}%

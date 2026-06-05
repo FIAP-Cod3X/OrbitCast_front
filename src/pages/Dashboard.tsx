@@ -11,6 +11,7 @@ import { dashboardApi, campanhasApi, simulacoesApi } from '../services/api';
 import type { DashboardResumo, CampanhaTransmissao, Simulacao } from '../types';
 
 const COLORS = { blue:'#4a9eff', purple:'#b794f4', green:'#68d391', yellow:'#f6ad55', red:'#fc8181' };
+const VIAB_CLASS: Record<string, string> = { ALTA: 'viab-green', MEDIA: 'viab-yellow', BAIXA: 'viab-red' };
 
 type ChartPayload = { name?: string; value?: string | number; color?: string };
 type ChartTooltipProps = { active?: boolean; payload?: ChartPayload[]; label?: string | number };
@@ -18,7 +19,7 @@ type ChartTooltipProps = { active?: boolean; payload?: ChartPayload[]; label?: s
 const Tip = ({ active, payload, label }: ChartTooltipProps) => active && payload?.length ? (
   <div className="rounded-lg border border-[var(--border)] bg-[var(--bg-card)] px-3.5 py-2.5 text-[13px]">
     <p className="mb-1 text-[var(--text-dim)]">{label}</p>
-    {payload.map((p) => <p key={`${p.name}-${p.value}`} style={{ color: p.color, fontWeight:600 }}>{p.name}: {p.value}</p>)}
+    {payload.map((p) => <p key={`${p.name}-${p.value}`} className="chart-tooltip-line">{p.name}: {p.value}</p>)}
   </div>
 ) : null;
 
@@ -65,12 +66,12 @@ export default function DashboardPage() {
         />
 
         <div className="mb-6 grid grid-cols-[repeat(auto-fit,minmax(170px,1fr))] gap-3">
-          <div className="anim-fade-up delay-1"><MetricCard label="Clientes" value={resumo?.totalClientes ?? 0} icon={<Users size={18}/>} color="var(--accent)" /></div>
-          <div className="anim-fade-up delay-2"><MetricCard label="Campanhas" value={resumo?.totalCampanhas ?? 0} icon={<Radio size={18}/>} color={COLORS.purple} /></div>
-          <div className="anim-fade-up delay-3"><MetricCard label="Regiões" value={resumo?.totalRegioes ?? 0} icon={<MapPin size={18}/>} color={COLORS.green} /></div>
-          <div className="anim-fade-up delay-4"><MetricCard label="Simulações" value={resumo?.totalSimulacoes ?? 0} icon={<Zap size={18}/>} color={COLORS.yellow} /></div>
-          <div className="anim-fade-up delay-5"><MetricCard label="Alcance Total" value={`${((resumo?.alcanceEstimadoTotal??0)/1_000_000).toFixed(1)}M`} icon={<TrendingUp size={18}/>} color={COLORS.green} subtitle="pessoas estimadas" /></div>
-          <div className="anim-fade-up delay-6"><MetricCard label="Qualidade Média" value={`${(resumo?.qualidadeMediaSinal??0).toFixed(1)}%`} icon={<Activity size={18}/>} color={COLORS.red} subtitle="do sinal" /></div>
+          <div className="anim-fade-up delay-1"><MetricCard label="Clientes" value={resumo?.totalClientes ?? 0} icon={<Users size={18}/>} /></div>
+          <div className="anim-fade-up delay-2"><MetricCard label="Campanhas" value={resumo?.totalCampanhas ?? 0} icon={<Radio size={18}/>} tone="purple" /></div>
+          <div className="anim-fade-up delay-3"><MetricCard label="Regiões" value={resumo?.totalRegioes ?? 0} icon={<MapPin size={18}/>} tone="green" /></div>
+          <div className="anim-fade-up delay-4"><MetricCard label="Simulações" value={resumo?.totalSimulacoes ?? 0} icon={<Zap size={18}/>} tone="yellow" /></div>
+          <div className="anim-fade-up delay-5"><MetricCard label="Alcance Total" value={`${((resumo?.alcanceEstimadoTotal??0)/1_000_000).toFixed(1)}M`} icon={<TrendingUp size={18}/>} tone="green" subtitle="pessoas estimadas" /></div>
+          <div className="anim-fade-up delay-6"><MetricCard label="Qualidade Média" value={`${(resumo?.qualidadeMediaSinal??0).toFixed(1)}%`} icon={<Activity size={18}/>} tone="red" subtitle="do sinal" /></div>
         </div>
 
         <div className="chart-grid mb-4 grid grid-cols-3 gap-4">
@@ -117,10 +118,10 @@ export default function DashboardPage() {
                   {viabData.map(v => (
                     <div key={v.name} className="flex items-center justify-between text-[13px]">
                       <div className="flex items-center gap-1.5">
-                        <div className="h-2 w-2 rounded-sm" style={{ background: VIAB_COLORS[v.name] }} />
+                        <div className={`viab-dot ${VIAB_CLASS[v.name] ?? 'viab-blue'}`} />
                         <span className="text-[var(--text-muted)]">{v.name}</span>
                       </div>
-                      <span style={{ fontWeight:600, color: VIAB_COLORS[v.name] }}>{v.value}</span>
+                      <span className={`viab-value ${VIAB_CLASS[v.name] ?? 'viab-blue'}`}>{v.value}</span>
                     </div>
                   ))}
                 </div>
@@ -205,13 +206,6 @@ export default function DashboardPage() {
           </div>
         )}
       </div>
-      <style>{`
-        @media (max-width: 900px) {
-          .chart-grid { grid-template-columns: 1fr !important; }
-          .chart-grid > *:first-child { grid-column: span 1 !important; }
-          .bottom-grid { grid-template-columns: 1fr !important; }
-        }
-      `}</style>
     </DashboardLayout>
   );
 }

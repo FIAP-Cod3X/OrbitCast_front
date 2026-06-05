@@ -36,6 +36,7 @@ async function apiFetch<T>(path: string, options?: RequestInit): Promise<T> {
       const errData = await response.json();
       errorMsg = errData.mensagem || errData.erro || errorMsg;
     } catch {
+      errorMsg = `Erro ${response.status}: ${response.statusText}`;
     }
     throw new Error(errorMsg);
   }
