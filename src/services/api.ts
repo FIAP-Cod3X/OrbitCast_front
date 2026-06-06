@@ -17,13 +17,30 @@ async function apiFetch<T>(path: string, options?: RequestInit): Promise<T> {
     headers.set('Content-Type', 'application/json');
   }
 
-  let response: Response;
-  try {
-    response = await fetch(url, {
-      ...options,
-      headers,
-    });
-  } catch {
+  let response: Response | null = null;
+  const method = options?.method?.toUpperCase() ?? 'GET';
+  const maxAttempts = method === 'GET' || method === 'HEAD' ? 2 : 1;
+
+  for (let attempt = 0; attempt < maxAttempts; attempt++) {
+    try {
+      response = await fetch(url, {
+        ...options,
+        headers,
+      });
+
+      if (response.status < 500 || attempt === maxAttempts - 1) {
+        break;
+      }
+    } catch {
+      if (attempt === maxAttempts - 1) {
+        break;
+      }
+    }
+
+    await new Promise(resolve => setTimeout(resolve, 700));
+  }
+
+  if (!response) {
     throw new Error(
       `Não foi possível conectar com a API em ${API_BASE_URL}. ` +
       'Confira se a URL VITE_API_URL está correta e se a API está online.'
@@ -54,7 +71,9 @@ async function apiFetch<T>(path: string, options?: RequestInit): Promise<T> {
 }
 
 export const healthApi = {
-  check: () => apiFetch<string>('/health'),
+  check: () => apiFetch<string>('/health', {
+    headers: { Accept: 'text/plain' },
+  }),
 };
 
 export const clientesApi = {
