@@ -1,5 +1,6 @@
 import { Code2, ExternalLink, UsersRound } from 'lucide-react';
 import PublicLayout from '../layouts/PublicLayout';
+import { API_BASE_URL } from '../services/api';
 import type { IntegranteType } from '../types';
 
 type TeamMember = IntegranteType & {
@@ -64,7 +65,7 @@ export default function IntegrantesPage() {
           <div className="anim-fade-up">
             <span className="mb-3 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.1em] text-[var(--accent)]">
               <UsersRound size={14} />
-              Global Solution · FIAP 2025
+              Global Solution · FIAP 2026
             </span>
             <h1 className="mb-4 max-w-[680px] font-display text-[clamp(34px,5vw,58px)] font-bold leading-[1.02] text-white">
               Equipe OrbitCast
@@ -174,7 +175,7 @@ export default function IntegrantesPage() {
             ))}
           </div>
           <a
-            href="https://orbitcast.onrender.com/health"
+            href={`${API_BASE_URL}/health`}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex shrink-0 items-center justify-center gap-2 rounded-[7px] border border-[rgba(74,158,255,0.25)] px-3.5 py-2 text-sm font-semibold text-[var(--accent)] no-underline transition-colors hover:bg-[rgba(74,158,255,0.08)]"

@@ -4,7 +4,11 @@ import type {
   CampanhaFormData, RegiaoFormData, CampanhaRegiaoInput
 } from '../types';
 
-export const API_BASE_URL = (import.meta.env.VITE_API_URL || 'http://localhost:8080')
+const DEFAULT_API_URL = import.meta.env.PROD
+  ? 'https://orbitcast-global-api.onrender.com'
+  : 'http://localhost:8080';
+
+export const API_BASE_URL = (import.meta.env.VITE_API_URL || DEFAULT_API_URL)
   .replace(/\/+$/, '');
 
 // Generic fetch helper
@@ -24,8 +28,8 @@ async function apiFetch<T>(path: string, options?: RequestInit): Promise<T> {
     });
   } catch {
     throw new Error(
-      `Nao foi possivel conectar com a API em ${API_BASE_URL}. ` +
-      'Confira se a URL VITE_API_URL esta correta e se a API esta online.'
+      `Não foi possível conectar com a API em ${API_BASE_URL}. ` +
+      'Confira se a URL VITE_API_URL está correta e se a API está online.'
     );
   }
 

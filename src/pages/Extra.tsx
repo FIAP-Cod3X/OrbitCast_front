@@ -70,9 +70,9 @@ const faqs = [
   { q:'Como funciona a simulação?', a:'Você cadastra uma campanha com orçamento, qualidade de sinal e duração, associa regiões desejadas e executa a simulação. O sistema calcula custo estimado, alcance em pessoas e score de viabilidade automaticamente.' },
   { q:'Quais qualidades de transmissão são suportadas?', a:'SD, HD, Full HD e 4K Ultra HD. Cada qualidade tem cálculo de custo diferente e a IA sugere a melhor relação custo-benefício para cada região.' },
   { q:'Como as regiões são classificadas?', a:'Cada região tem índice de conectividade, população estimada, área em km² e prioridade social de 1 a 5. Regiões com baixa conectividade e alta prioridade são priorizadas.' },
-  { q:'Como configurar a URL da API?', a:'Crie um arquivo .env na raiz do projeto com VITE_API_URL=https://orbitcast.onrender.com. Essa URL aponta para a API Java publicada no Render.' },
+  { q:'Como configurar a URL da API?', a:'Crie um arquivo .env na raiz do projeto com VITE_API_URL=https://orbitcast-global-api.onrender.com. Essa URL aponta para a API Java publicada no Render.' },
   { q:'O sistema é responsivo?', a:'Sim. Funciona em mobile, tablet e desktop. Layout, tabelas e gráficos se adaptam automaticamente ao tamanho de tela.' },
-  { q:'A API Java precisa estar rodando?', a:'Sim. O front-end consome a API REST Java publicada no Render. Para desenvolvimento local, tambem e possivel trocar a URL para http://localhost:8080.' },
+  { q:'A API Java precisa estar rodando?', a:'Sim. O front-end consome a API REST Java publicada no Render. Para desenvolvimento local, também é possível trocar a URL para http://localhost:8080.' },
 ];
 
 function FaqItem({ q, a }: { q:string; a:string }) {

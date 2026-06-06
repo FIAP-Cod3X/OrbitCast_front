@@ -295,7 +295,7 @@ export default function HomePage() {
         padding: '24px', textAlign: 'center',
       }}>
         <p style={{ fontSize: 13, color: 'var(--text-dim)' }}>
-          © 2025 OrbitCast · Global Solution FIAP · Economia Espacial & Conectividade via Satélite
+          © 2026 OrbitCast · Global Solution FIAP · Economia Espacial & Conectividade via Satélite
         </p>
       </footer>
 

@@ -1,22 +1,22 @@
 # OrbitCast
 
-Plataforma web para planejamento de transmissoes via satelite em regioes remotas ou com baixa conectividade.
+Plataforma web para planejamento de transmissões via satélite em regiões remotas ou com baixa conectividade.
 
-O projeto foi desenvolvido para a Global Solution FIAP 2025, integrando o front-end em React + Vite + TypeScript com uma API REST Java publicada no Render.
+O projeto foi desenvolvido para a Global Solution FIAP 2026/1, integrando o front-end em React + Vite + TypeScript com uma API REST Java publicada no Render.
 
-## Descricao
+## Descrição
 
-O OrbitCast ajuda equipes de midia, educacao, eventos, governo e instituicoes sociais a planejar campanhas de transmissao via satelite. A aplicacao permite consultar regioes, cadastrar campanhas, associar regioes a campanhas, executar simulacoes e analisar indicadores de custo, alcance, qualidade de sinal e viabilidade
+O OrbitCast ajuda equipes de mídia, educação, eventos, governo e instituições sociais a planejar campanhas de transmissão via satélite. A aplicação permite consultar regiões, cadastrar campanhas, associar regiões a campanhas, executar simulações e analisar indicadores de custo, alcance, qualidade de sinal e viabilidade.
 
 ## Funcionalidades
 
-- SPA com rotas estaticas e dinamicas usando React Router.
-- Dashboard com metricas, graficos e resumo operacional.
-- CRUD de campanhas e regioes consumindo API REST Java.
-- Simulacao de campanhas por endpoint remoto.
-- Associacao de regioes a campanhas com prioridade e observacao.
-- Paginas institucionais obrigatorias: Home, Sobre, FAQ, Contato e Integrantes.
-- Paginas da solucao: Dashboard, Campanhas, Detalhe da Campanha, Regioes e Simulacao.
+- SPA com rotas estáticas e dinâmicas usando React Router.
+- Dashboard com métricas, gráficos e resumo operacional.
+- CRUD de campanhas e regiões consumindo API REST Java.
+- Simulação de campanhas por endpoint remoto.
+- Associação de regiões a campanhas com prioridade e observação.
+- Páginas institucionais obrigatórias: Home, Sobre, FAQ, Contato e Integrantes.
+- Páginas da solução: Dashboard, Campanhas, Detalhe da Campanha, Regiões e Simulação.
 - Tratamento de carregamento, erro e feedbacks por Toast.
 - Layout responsivo para mobile, tablet e desktop.
 
@@ -29,7 +29,7 @@ O OrbitCast ajuda equipes de midia, educacao, eventos, governo e instituicoes so
 - React Router DOM 7
 - Recharts
 - Lucide React
-- Fetch API para comunicacao HTTP
+- Fetch API para comunicação HTTP
 
 ## Como Usar
 
@@ -37,18 +37,19 @@ O OrbitCast ajuda equipes de midia, educacao, eventos, governo e instituicoes so
 
 | Recurso | URL |
 |---|---|
-| Repositorio GitHub | https://github.com/FIAP-Cod3X/OrbitCast_front |
+| Repositório GitHub | https://github.com/FIAP-Cod3X/OrbitCast_front |
+| Repositório Back-End | https://github.com/Guilherme-Soares00/OrbitCast-Global |
 | Deploy Vercel | https://orbitcast.vercel.app |
-| API Java Render | https://orbitcast.onrender.com |
-| Video YouTube | Pendente: inserir URL apos publicacao |
+| API Java Render | https://orbitcast-global-api.onrender.com |
+| Vídeo YouTube | Pendente: inserir URL após publicação |
 
-### Instalacao
+### Instalação
 
 ```bash
 npm install
 ```
 
-### Configuracao da API
+### Configuração da API
 
 Crie um arquivo `.env` a partir do exemplo:
 
@@ -56,16 +57,17 @@ Crie um arquivo `.env` a partir do exemplo:
 cp .env.example .env
 ```
 
-Configuracao usada para a entrega:
+Configuração usada para a entrega:
 
 ```env
-VITE_API_URL=https://orbitcast.onrender.com
+VITE_API_URL=https://orbitcast-global-api.onrender.com
 ```
 
 Para desenvolvimento com a API Java local:
 
 ```bash
-cd ../OrbitCast
+git clone https://github.com/Guilherme-Soares00/OrbitCast-Global
+cd OrbitCast-Global
 mvn quarkus:dev
 ```
 
@@ -81,7 +83,7 @@ VITE_API_URL=http://localhost:8080
 npm run dev
 ```
 
-### Build de producao
+### Build de produção
 
 ```bash
 npm run build
@@ -95,32 +97,32 @@ npm run preview
 
 ## Rotas
 
-| Rota | Tipo | Descricao |
+| Rota | Tipo | Descrição |
 |---|---|---|
-| `/` | Estatica | Pagina inicial |
-| `/sobre` | Estatica | Apresentacao do problema e da solucao |
-| `/faq` | Estatica | Perguntas frequentes |
-| `/contato` | Estatica | Formulario institucional |
-| `/integrantes` | Estatica | Equipe, fotos, RM, turma e links |
-| `/dashboard` | Estatica | Indicadores e graficos da API |
-| `/campanhas` | Estatica | Listagem, criacao, edicao e remocao de campanhas |
-| `/campanhas/:id` | Dinamica | Detalhe da campanha com parametro de rota |
-| `/regioes` | Estatica | CRUD de regioes |
-| `/simulacao` | Estatica | Execucao de simulacoes |
-| `*` | Fallback | Pagina 404 personalizada |
+| `/` | Estática | Página inicial |
+| `/sobre` | Estática | Apresentação do problema e da solução |
+| `/faq` | Estática | Perguntas frequentes |
+| `/contato` | Estática | Formulário institucional |
+| `/integrantes` | Estática | Equipe, fotos, RM, turma e links |
+| `/dashboard` | Estática | Indicadores e gráficos da API |
+| `/campanhas` | Estática | Listagem, criação, edição e remoção de campanhas |
+| `/campanhas/:id` | Dinâmica | Detalhe da campanha com parâmetro de rota |
+| `/regioes` | Estática | CRUD de regiões |
+| `/simulacao` | Estática | Execução de simulações |
+| `*` | Fallback | Página 404 personalizada |
 
 ## Endpoints Consumidos
 
-| Recurso | Metodos e endpoints |
+| Recurso | Métodos e endpoints |
 |---|---|
 | Health | `GET /health` |
 | Dashboard | `GET /dashboard/resumo` |
 | Clientes | `GET /clientes`, `GET /clientes/:id`, `POST /clientes`, `PUT /clientes/:id`, `DELETE /clientes/:id` |
 | Canais | `GET /canais`, `GET /canais/:id`, `POST /canais`, `PUT /canais/:id`, `DELETE /canais/:id` |
-| Regioes | `GET /regioes`, `GET /regioes/:id`, `POST /regioes`, `PUT /regioes/:id`, `DELETE /regioes/:id` |
+| Regiões | `GET /regioes`, `GET /regioes/:id`, `POST /regioes`, `PUT /regioes/:id`, `DELETE /regioes/:id` |
 | Campanhas | `GET /campanhas`, `GET /campanhas/:id`, `POST /campanhas`, `PUT /campanhas/:id`, `DELETE /campanhas/:id` |
-| Campanha e regioes | `GET /campanhas/:id/regioes`, `POST /campanhas/:id/regioes/:regiaoId`, `DELETE /campanhas/:id/regioes/:regiaoId` |
-| Simulacoes | `GET /simulacoes`, `GET /simulacoes/:id`, `GET /campanhas/:id/simulacoes`, `POST /campanhas/:id/simulacoes` |
+| Campanha e regiões | `GET /campanhas/:id/regioes`, `POST /campanhas/:id/regioes/:regiaoId`, `DELETE /campanhas/:id/regioes/:regiaoId` |
+| Simulações | `GET /simulacoes`, `GET /simulacoes/:id`, `GET /campanhas/:id/simulacoes`, `POST /campanhas/:id/simulacoes` |
 | Planos de cobertura | `GET /planos-cobertura`, `GET /planos-cobertura/:id`, `POST /planos-cobertura`, `PUT /planos-cobertura/:id`, `DELETE /planos-cobertura/:id` |
 
 ## Estrutura de Pastas
@@ -134,8 +136,8 @@ src/
 |-- hooks/               # Hooks customizados
 |-- layouts/             # Layouts publico e dashboard
 |-- pages/               # Paginas da SPA
-|-- routes/              # Configuracao de rotas
-|-- services/            # Integracao com API REST
+|-- routes/              # Configuração de rotas
+|-- services/            # Integração com API REST
 |-- types/               # Interfaces e tipos TypeScript
 |-- App.tsx
 |-- main.tsx
@@ -145,32 +147,32 @@ src/
 
 - Interfaces para entidades da API em `src/types/index.ts`.
 - Union types para status de campanha, viabilidade e estados de carregamento.
-- Intersection types para modelos derivados de campanha e regiao.
+- Intersection types para modelos derivados de campanha e região.
 - Service layer centralizada em `src/services/api.ts`.
-- Layouts separados para paginas publicas e area operacional.
-- Componentes reutilizaveis para botoes, cards, modais, inputs, badges, loading e erros.
+- Layouts separados para páginas públicas e área operacional.
+- Componentes reutilizáveis para botões, cards, modais, inputs, badges, loading e erros.
 - Hooks React utilizados: `useState`, `useEffect`, `useContext`, `useCallback` e hook customizado `useDebounce`.
 
-## Integracao com API Java
+## Integração com API Java
 
-A aplicacao consome a API Java publicada em:
+A aplicação consome a API Java publicada em:
 
 ```text
-https://orbitcast.onrender.com
+https://orbitcast-global-api.onrender.com
 ```
 
 O front-end usa `fetch()` diretamente, sem Axios, com:
 
-- normalizacao da URL base;
-- envio de `Content-Type: application/json` quando necessario;
+- normalização da URL base;
+- envio de `Content-Type: application/json` quando necessário;
 - tratamento de respostas `204 No Content`;
 - leitura de erros no formato `{ mensagem, erro }`;
-- mensagens amigaveis quando a API nao responde.
+- mensagens amigáveis quando a API não responde.
 
-## Imagens e Icones
+## Imagens e Ícones
 
 - Fotos dos integrantes em `public/img/`.
-- Icones SVG em `public/icons.svg`.
+- Ícones SVG em `public/icons.svg`.
 - Favicon em `public/favicon.svg`.
 - Imagem de apoio em `src/assets/hero.png`.
 - Iconografia da interface com Lucide React.
@@ -186,8 +188,10 @@ O front-end usa `fetch()` diretamente, sem Axios, com:
 
 ## Contato
 
-FIAP - Analise e Desenvolvimento de Sistemas - Turma 1TDSPB - 2025
+FIAP - Análise e Desenvolvimento de Sistemas - Turma 1TDSPB - 2026
 
-Repositorio do front-end: https://github.com/FIAP-Cod3X/OrbitCast_front
+Repositório do front-end: https://github.com/FIAP-Cod3X/OrbitCast_front
 
-API Java: https://orbitcast.onrender.com
+Repositório do back-end: https://github.com/Guilherme-Soares00/OrbitCast-Global
+
+API Java: https://orbitcast-global-api.onrender.com
