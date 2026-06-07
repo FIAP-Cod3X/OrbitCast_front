@@ -4,9 +4,7 @@ import type {
   CampanhaFormData, RegiaoFormData, CampanhaRegiaoInput
 } from '../types';
 
-const DEFAULT_API_URL = import.meta.env.PROD
-  ? 'https://orbitcast-global-api.onrender.com'
-  : 'http://localhost:8080';
+const DEFAULT_API_URL = 'https://orbitcast-global-api.onrender.com';
 
 export const API_BASE_URL = (import.meta.env.VITE_API_URL || DEFAULT_API_URL)
   .replace(/\/+$/, '');
