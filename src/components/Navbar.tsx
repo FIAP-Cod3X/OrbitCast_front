@@ -20,7 +20,7 @@ export default function Navbar() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-[100] flex h-14 items-center border-b border-[var(--border)] bg-[#080c14eb] backdrop-blur-xl">
-      <div className="navbar-inner">
+      <div className="grid w-full grid-cols-[220px_minmax(0,1fr)_220px] items-center gap-4 px-6 max-[1100px]:flex max-[1100px]:justify-between">
         {/* Logo */}
         <Link to="/" className="flex shrink-0 items-center gap-2.5 no-underline">
           <div className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-full bg-[radial-gradient(circle_at_40%_40%,#4a9eff,#1a3a6b)] shadow-[0_0_12px_rgba(74,158,255,0.4)]">
@@ -36,7 +36,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden-mobile flex items-center gap-1">
+        <nav className="flex items-center justify-center gap-1 justify-self-center max-[1100px]:hidden">
           {links.map(l => {
             const active = l.to === '/' ? pathname === '/' : pathname.startsWith(l.to);
             return (
@@ -56,8 +56,8 @@ export default function Navbar() {
         </nav>
 
         {/* Right */}
-        <div className="flex shrink-0 items-center gap-3">
-          <Link to="/simulacao" className="btn-primary btn-sm hidden-mobile rounded-[7px]">
+        <div className="flex shrink-0 items-center justify-end gap-3 justify-self-end">
+          <Link to="/simulacao" className="btn-primary btn-sm rounded-[7px] max-[1100px]:hidden">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
               <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
             </svg>
@@ -66,7 +66,7 @@ export default function Navbar() {
 
           {/* Mobile menu btn */}
           <button
-            className="show-mobile"
+            className="hidden cursor-pointer border-0 bg-transparent p-1 text-[var(--text-muted)] max-[1100px]:flex"
             onClick={() => setOpen(!open)}
             aria-label={open ? 'Fechar menu' : 'Abrir menu'}
           >
@@ -100,30 +100,6 @@ export default function Navbar() {
           </Link>
         </div>
       )}
-
-      <style>{`
-        .navbar-inner {
-          width: 100%;
-          padding: 0 24px;
-          display: grid;
-          grid-template-columns: minmax(160px, 1fr) auto minmax(160px, 1fr);
-          align-items: center;
-          gap: 18px;
-        }
-
-        .navbar-inner > nav { justify-self: center; }
-        .navbar-inner > div:last-child { justify-self: end; }
-
-        @media (max-width: 1100px) {
-          .navbar-inner {
-            display: flex;
-            justify-content: space-between;
-            gap: 16px;
-          }
-          .hidden-mobile { display: none !important; }
-          .show-mobile { display: flex !important; background: transparent; border: 0; color: var(--text-muted); cursor: pointer; padding: 4px; }
-        }
-      `}</style>
     </header>
   );
 }

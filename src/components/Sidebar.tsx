@@ -17,7 +17,7 @@ export default function Sidebar() {
   const { pathname } = useLocation();
 
   return (
-    <aside className="sidebar-desktop fixed bottom-0 left-0 top-14 z-50 flex flex-col overflow-y-auto border-r border-[var(--border)] bg-[var(--bg)] px-3 py-4">
+    <aside className="fixed bottom-0 left-0 top-14 z-50 flex w-[220px] flex-col overflow-y-auto border-r border-[var(--border)] bg-[var(--bg)] px-3 py-4 max-[1023px]:hidden">
       <nav className="flex flex-col gap-0.5">
         {items.map((item, i) => {
           if (!item) return <div key={i} className="mx-1 my-2 h-px bg-[var(--border)]" />;
@@ -52,11 +52,6 @@ export default function Sidebar() {
           v1.0.0 · OrbitCast
         </div>
       </div>
-
-      <style>{`
-        .sidebar-desktop { width: 220px; }
-        @media (max-width: 1023px) { .sidebar-desktop { display: none !important; } }
-      `}</style>
     </aside>
   );
 }

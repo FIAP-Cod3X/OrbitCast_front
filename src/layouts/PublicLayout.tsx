@@ -5,12 +5,9 @@ export default function PublicLayout({ children }: { children: ReactNode }) {
   return (
     <div className="min-h-screen bg-[var(--bg)]">
       <Navbar />
-      <main className="public-main">
+      <main className="pt-14">
         {children}
       </main>
-      <style>{`
-        .public-main { padding-top: 56px; }
-      `}</style>
     </div>
   );
 }

@@ -287,9 +287,30 @@ body {
 .recharts-text { fill: var(--text-dim); font-size: 11px; }
 .recharts-tooltip-wrapper { outline: none; }
 
-/* Responsive sidebar offset */
-.with-sidebar { margin-left: var(--sidebar-w); }
-@media (max-width: 1023px) { .with-sidebar { margin-left: 0; } }
+/* Dashboard frame */
+.dashboard-shell {
+  min-height: 100vh;
+  width: calc(100vw - var(--sidebar-w));
+  margin-left: var(--sidebar-w);
+  padding-top: var(--nav-h);
+  overflow-x: hidden;
+}
+
+.dashboard-content {
+  width: min(100%, 1120px);
+  padding: 32px;
+}
+
+@media (max-width: 1023px) {
+  .dashboard-shell {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .dashboard-content { padding: 16px; }
+}
 
 /* Page containers */
 .public-page {
