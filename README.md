@@ -39,7 +39,7 @@ O OrbitCast ajuda equipes de mídia, educação, eventos, governo e instituiçõ
 |---|---|
 | Repositório GitHub | https://github.com/FIAP-Cod3X/OrbitCast_front |
 | Repositório Back-End | https://github.com/Guilherme-Soares00/OrbitCast-Global |
-| Deploy Vercel | https://orbitcast.vercel.app |
+| Deploy Vercel | https://orbitcast-front.vercel.app |
 | API Java Render | https://orbitcast-global-api.onrender.com |
 | Vídeo YouTube | Pendente: inserir URL após publicação |
 
