@@ -3,12 +3,7 @@ import PublicLayout from '../layouts/PublicLayout';
 import { API_BASE_URL } from '../services/api';
 import type { IntegranteType } from '../types';
 
-type TeamMember = IntegranteType & {
-  foco: string;
-  descricao: string;
-};
-
-const integrantes: TeamMember[] = [
+const integrantes: IntegranteType[] = [
   {
     nome: 'Gabriel Stuani',
     rm: 'RM566682',
@@ -16,9 +11,7 @@ const integrantes: TeamMember[] = [
     foto: '/img/gabriel.jpg',
     github: 'https://github.com/Gstuani',
     linkedin: 'https://www.linkedin.com/in/gabrielstuani/',
-    role: 'Front-End Developer',
-    foco: 'Interface e experiencia',
-    descricao: 'Atua na composicao visual das telas publicas e na consistencia dos fluxos de navegacao.',
+    role: '',
   },
   {
     nome: 'Guilherme Soares',
@@ -27,9 +20,7 @@ const integrantes: TeamMember[] = [
     foto: '/img/guilherme.jpeg',
     github: 'https://github.com/Guilherme-Soares00',
     linkedin: 'https://www.linkedin.com/in/guilherme-soares-alberti/',
-    role: 'Front-End Developer',
-    foco: 'Componentes e responsividade',
-    descricao: 'Organiza componentes reutilizaveis e garante que a experiencia funcione bem em diferentes tamanhos de tela.',
+    role: '',
   },
   {
     nome: 'Erick Ramos Santos',
@@ -38,9 +29,7 @@ const integrantes: TeamMember[] = [
     foto: '/img/erick.jpeg',
     github: 'https://github.com/erickramossantoser',
     linkedin: 'https://www.linkedin.com/in/erickrsantos/',
-    role: 'Front-End Developer',
-    foco: 'Integracao e dados',
-    descricao: 'Conecta o front-end com a API Java e cuida dos fluxos de dados usados nas simulacoes e dashboards.',
+    role: '',
   },
   {
     nome: 'Matheus Carneiro Maciel',
@@ -49,9 +38,7 @@ const integrantes: TeamMember[] = [
     foto: '/img/matheus.jpg',
     github: 'https://github.com/kakarneiro',
     linkedin: 'https://www.linkedin.com/in/matheus-carneiro-maciel?trk=contact-info',
-    role: 'Front-End Developer',
-    foco: 'Documentacao e qualidade',
-    descricao: 'Apoia a organizacao da entrega, validacao das informacoes e acabamento das areas institucionais.',
+    role: '',
   },
 ];
 
@@ -71,7 +58,7 @@ export default function IntegrantesPage() {
               Equipe OrbitCast
             </h1>
             <p className="max-w-[620px] text-base leading-7 text-[var(--text-dim)]">
-              Quatro integrantes da turma 1TDSPB construindo uma experiencia para planejamento de transmissoes via satelite, com foco em clareza operacional, dados e integracao com API Java.
+              Quatro integrantes da turma 1TDSPB responsáveis pelo projeto OrbitCast.
             </p>
           </div>
 
@@ -111,21 +98,18 @@ export default function IntegrantesPage() {
               </div>
 
               <div className="p-5 sm:p-6">
-                <div className="mb-5 min-h-[156px]">
-                  <div className="mb-3 flex flex-wrap items-center gap-2">
-                    <span className="rounded-[6px] border border-[rgba(74,158,255,0.22)] bg-[rgba(74,158,255,0.08)] px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.08em] text-[var(--accent)]">
-                      {integrante.role}
-                    </span>
-                    <span className="text-xs font-medium text-[var(--text-dim)]">
-                      {integrante.foco}
-                    </span>
-                  </div>
-                  <h2 className="mb-3 font-display text-[clamp(19px,2vw,24px)] font-bold leading-tight text-white">
+                <div className="mb-5">
+                  <h2 className="mb-2 font-display text-[clamp(19px,2vw,24px)] font-bold leading-tight text-white">
                     {integrante.nome}
                   </h2>
-                  <p className="text-sm leading-6 text-[var(--text-dim)] sm:text-[15px]">
-                    {integrante.descricao}
-                  </p>
+                  <div className="flex flex-wrap gap-2 text-sm">
+                    <span className="rounded-[6px] border border-white/10 bg-[var(--bg)] px-2.5 py-1 font-semibold text-[var(--text-muted)]">
+                      {integrante.rm}
+                    </span>
+                    <span className="rounded-[6px] border border-[rgba(74,158,255,0.24)] bg-[rgba(74,158,255,0.08)] px-2.5 py-1 font-semibold text-[var(--accent)]">
+                      {integrante.turma}
+                    </span>
+                  </div>
                 </div>
 
                 <div className="grid grid-cols-2 gap-2">
@@ -155,34 +139,36 @@ export default function IntegrantesPage() {
           ))}
         </section>
 
-        <section className="mx-auto mt-5 flex max-w-[900px] flex-col gap-4 rounded-[8px] border border-[var(--border)] bg-[var(--bg-card)] p-5 sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <h3 className="font-display text-base font-bold text-white">
+        <section className="mx-auto mt-6 max-w-[900px] overflow-hidden rounded-[8px] border border-[var(--border)] bg-[var(--bg-card)]">
+          <div className="border-b border-[var(--border)] px-6 py-5">
+            <h3 className="font-display text-lg font-bold text-white">
               Front-End Design Engineering + Domain Driven Design Using Java
             </h3>
             <p className="mt-1 text-sm text-[var(--text-dim)]">
-              Economia Espacial e Conectividade via Satelite
+              Economia Espacial e Conectividade via Satélite
             </p>
           </div>
-          <div className="flex flex-wrap gap-2">
-            {stack.map((item) => (
-              <span
-                key={item}
-                className="rounded-[6px] border border-[var(--border)] bg-[var(--bg)] px-3 py-1.5 text-[13px] text-[var(--text-muted)]"
-              >
-                {item}
-              </span>
-            ))}
+          <div className="grid gap-5 p-6 md:grid-cols-[1fr_auto] md:items-center">
+            <div className="flex flex-wrap gap-2">
+              {stack.map((item) => (
+                <span
+                  key={item}
+                  className="rounded-[6px] border border-[rgba(74,158,255,0.18)] bg-[rgba(74,158,255,0.06)] px-3 py-1.5 text-[13px] font-medium text-[var(--text-muted)]"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+            <a
+              href={`${API_BASE_URL}/health`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex shrink-0 items-center justify-center gap-2 rounded-[7px] border border-[rgba(74,158,255,0.25)] bg-[rgba(74,158,255,0.08)] px-4 py-2.5 text-sm font-semibold text-[var(--accent)] no-underline transition-colors hover:bg-[rgba(74,158,255,0.14)]"
+            >
+              API
+              <ExternalLink size={14} />
+            </a>
           </div>
-          <a
-            href={`${API_BASE_URL}/health`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex shrink-0 items-center justify-center gap-2 rounded-[7px] border border-[rgba(74,158,255,0.25)] px-3.5 py-2 text-sm font-semibold text-[var(--accent)] no-underline transition-colors hover:bg-[rgba(74,158,255,0.08)]"
-          >
-            API
-            <ExternalLink size={14} />
-          </a>
         </section>
       </div>
     </PublicLayout>
