@@ -139,35 +139,41 @@ export default function IntegrantesPage() {
           ))}
         </section>
 
-        <section className="mx-auto mt-6 max-w-[900px] overflow-hidden rounded-[8px] border border-[var(--border)] bg-[var(--bg-card)]">
-          <div className="border-b border-[var(--border)] px-6 py-5">
-            <h3 className="font-display text-lg font-bold text-white">
-              Front-End Design Engineering + Domain Driven Design Using Java
-            </h3>
-            <p className="mt-1 text-sm text-[var(--text-dim)]">
-              Economia Espacial e Conectividade via Satélite
-            </p>
-          </div>
-          <div className="grid gap-5 p-6 md:grid-cols-[1fr_auto] md:items-center">
-            <div className="flex flex-wrap gap-2">
-              {stack.map((item) => (
-                <span
-                  key={item}
-                  className="rounded-[6px] border border-[rgba(74,158,255,0.18)] bg-[rgba(74,158,255,0.06)] px-3 py-1.5 text-[13px] font-medium text-[var(--text-muted)]"
-                >
-                  {item}
-                </span>
-              ))}
+        <section className="mx-auto mt-8 max-w-[900px] overflow-hidden rounded-[8px] border border-[rgba(74,158,255,0.16)] bg-[linear-gradient(135deg,rgba(74,158,255,0.08),rgba(16,24,39,0.95)_38%,rgba(183,148,244,0.07))] shadow-[0_18px_60px_rgba(0,0,0,0.22)]">
+          <div className="grid gap-6 p-6 sm:p-7 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+            <div>
+              <span className="mb-3 inline-flex rounded-[6px] border border-[rgba(74,158,255,0.22)] bg-[rgba(74,158,255,0.1)] px-3 py-1 text-[11px] font-bold uppercase tracking-[0.1em] text-[var(--accent)]">
+                Stack do projeto
+              </span>
+              <h3 className="max-w-[540px] font-display text-[clamp(20px,3vw,28px)] font-bold leading-tight text-white">
+                Front-End Design Engineering + Domain Driven Design Using Java
+              </h3>
+              <p className="mt-3 max-w-[500px] text-sm leading-6 text-[var(--text-dim)]">
+                Economia Espacial e Conectividade via Satélite, com front-end em React e API Java publicada em nuvem.
+              </p>
             </div>
-            <a
-              href={`${API_BASE_URL}/health`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex shrink-0 items-center justify-center gap-2 rounded-[7px] border border-[rgba(74,158,255,0.25)] bg-[rgba(74,158,255,0.08)] px-4 py-2.5 text-sm font-semibold text-[var(--accent)] no-underline transition-colors hover:bg-[rgba(74,158,255,0.14)]"
-            >
-              API
-              <ExternalLink size={14} />
-            </a>
+
+            <div className="rounded-[8px] border border-[var(--border)] bg-[rgba(8,12,20,0.52)] p-4">
+              <div className="mb-4 grid grid-cols-2 gap-2">
+                {stack.map((item) => (
+                  <span
+                    key={item}
+                    className="flex min-h-[38px] items-center justify-center rounded-[6px] border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.035)] px-3 text-center text-[13px] font-semibold text-[var(--text-muted)]"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+              <a
+                href={`${API_BASE_URL}/health`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-[7px] border border-[rgba(74,158,255,0.28)] bg-[rgba(74,158,255,0.12)] px-4 py-2.5 text-sm font-semibold text-[var(--accent)] no-underline transition-colors hover:bg-[rgba(74,158,255,0.18)]"
+              >
+                Ver status da API
+                <ExternalLink size={14} />
+              </a>
+            </div>
           </div>
         </section>
       </div>
