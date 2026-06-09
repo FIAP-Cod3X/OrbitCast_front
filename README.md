@@ -18,7 +18,7 @@ O OrbitCast ajuda equipes de mídia, educação, eventos, governo e instituiçõ
 - Páginas institucionais obrigatórias: Home, Sobre, FAQ, Contato e Integrantes.
 - Páginas da solução: Dashboard, Campanhas, Detalhe da Campanha, Regiões e Simulação.
 - Tratamento de carregamento, erro e feedbacks por Toast.
-- Layout responsivo para mobile, tablet e desktop.
+- Layout responsivo para mobile, tablet e desktop
 
 ## Tecnologias Utilizadas
 

@@ -9,7 +9,6 @@ const DEFAULT_API_URL = 'https://orbitcast-global-api.onrender.com';
 export const API_BASE_URL = (import.meta.env.VITE_API_URL || DEFAULT_API_URL)
   .replace(/\/+$/, '');
 
-// Generic fetch helper
 async function apiFetch<T>(path: string, options?: RequestInit): Promise<T> {
   const normalizedPath = path.startsWith('/') ? path : `/${path}`;
   const url = `${API_BASE_URL}${normalizedPath}`;
@@ -37,12 +36,10 @@ async function apiFetch<T>(path: string, options?: RequestInit): Promise<T> {
       const errData = await response.json();
       errorMsg = errData.mensagem || errData.erro || errorMsg;
     } catch {
-      // ignore parse errors
     }
     throw new Error(errorMsg);
   }
 
-  // Handle 204 No Content
   if (response.status === 204) {
     return null as T;
   }
@@ -55,12 +52,10 @@ async function apiFetch<T>(path: string, options?: RequestInit): Promise<T> {
   return response.text() as Promise<T>;
 }
 
-// ===================== HEALTH =====================
 export const healthApi = {
   check: () => apiFetch<string>('/health'),
 };
 
-// ===================== CLIENTES =====================
 export const clientesApi = {
   getAll: () => apiFetch<Cliente[]>('/clientes'),
   getById: (id: number) => apiFetch<Cliente>(`/clientes/${id}`),
@@ -72,7 +67,6 @@ export const clientesApi = {
     apiFetch<void>(`/clientes/${id}`, { method: 'DELETE' }),
 };
 
-// ===================== CANAIS =====================
 export const canaisApi = {
   getAll: () => apiFetch<Canal[]>('/canais'),
   getById: (id: number) => apiFetch<Canal>(`/canais/${id}`),
@@ -84,7 +78,6 @@ export const canaisApi = {
     apiFetch<void>(`/canais/${id}`, { method: 'DELETE' }),
 };
 
-// ===================== REGIOES =====================
 export const regioesApi = {
   getAll: () => apiFetch<Regiao[]>('/regioes'),
   getById: (id: number) => apiFetch<Regiao>(`/regioes/${id}`),
@@ -96,7 +89,6 @@ export const regioesApi = {
     apiFetch<void>(`/regioes/${id}`, { method: 'DELETE' }),
 };
 
-// ===================== CAMPANHAS =====================
 export const campanhasApi = {
   getAll: () => apiFetch<CampanhaTransmissao[]>('/campanhas'),
   getById: (id: number) => apiFetch<CampanhaTransmissao>(`/campanhas/${id}`),
@@ -107,7 +99,6 @@ export const campanhasApi = {
   delete: (id: number) =>
     apiFetch<void>(`/campanhas/${id}`, { method: 'DELETE' }),
 
-  // Regiões da campanha
   getRegioes: (campanhaId: number) =>
     apiFetch<Regiao[]>(`/campanhas/${campanhaId}/regioes`),
   addRegiao: (campanhaId: number, regiaoId: number, data: CampanhaRegiaoInput) =>
@@ -118,18 +109,15 @@ export const campanhasApi = {
   removeRegiao: (campanhaId: number, regiaoId: number) =>
     apiFetch<void>(`/campanhas/${campanhaId}/regioes/${regiaoId}`, { method: 'DELETE' }),
 
-  // Simulações da campanha
   getSimulacoes: (campanhaId: number) =>
     apiFetch<Simulacao[]>(`/campanhas/${campanhaId}/simulacoes`),
   runSimulacao: (campanhaId: number) =>
     apiFetch<Simulacao>(`/campanhas/${campanhaId}/simulacoes`, { method: 'POST' }),
 
-  // Planos de cobertura
   getPlanos: (campanhaId: number) =>
     apiFetch<PlanoCobertura[]>(`/campanhas/${campanhaId}/planos-cobertura`),
 };
 
-// ===================== PLANOS DE COBERTURA =====================
 export const planosApi = {
   getAll: () => apiFetch<PlanoCobertura[]>('/planos-cobertura'),
   getById: (id: number) => apiFetch<PlanoCobertura>(`/planos-cobertura/${id}`),
@@ -141,13 +129,11 @@ export const planosApi = {
     apiFetch<void>(`/planos-cobertura/${id}`, { method: 'DELETE' }),
 };
 
-// ===================== SIMULACOES =====================
 export const simulacoesApi = {
   getAll: () => apiFetch<Simulacao[]>('/simulacoes'),
   getById: (id: number) => apiFetch<Simulacao>(`/simulacoes/${id}`),
 };
 
-// ===================== DASHBOARD =====================
 export const dashboardApi = {
   getResumo: () => apiFetch<DashboardResumo>('/dashboard/resumo'),
 };

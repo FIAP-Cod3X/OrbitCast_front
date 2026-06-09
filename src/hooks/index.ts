@@ -1,6 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
 
-// Debounce hook for search
 export function useDebounce<T>(value: T, delay: number): T {
   const [debounced, setDebounced] = useState(value);
 
@@ -12,7 +11,6 @@ export function useDebounce<T>(value: T, delay: number): T {
   return debounced;
 }
 
-// Local storage hook
 export function useLocalStorage<T>(key: string, initialValue: T) {
   const [storedValue, setStoredValue] = useState<T>(() => {
     try {
@@ -36,7 +34,6 @@ export function useLocalStorage<T>(key: string, initialValue: T) {
   return [storedValue, setValue] as const;
 }
 
-// Toggle hook
 export function useToggle(initial = false) {
   const [value, setValue] = useState(initial);
   const toggle = useCallback(() => setValue(v => !v), []);

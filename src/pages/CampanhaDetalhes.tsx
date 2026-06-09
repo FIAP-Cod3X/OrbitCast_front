@@ -148,7 +148,6 @@ export default function CampanhaDetalhes() {
   return (
     <DashboardLayout>
       <div className="animate-fadeIn space-y-6">
-        {/* Back + header */}
         <div className="flex items-center gap-4 flex-wrap">
           <Link to="/campanhas">
             <Button variant="ghost" size="sm" icon={<ArrowLeft size={16} />}>Voltar</Button>
@@ -173,7 +172,6 @@ export default function CampanhaDetalhes() {
           </div>
         </div>
 
-        {/* Info cards */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <Card className="flex items-center gap-3">
             <Calendar size={20} className="text-cyan-400" />
@@ -213,7 +211,6 @@ export default function CampanhaDetalhes() {
           </Card>
         )}
 
-        {/* Última simulação */}
         {ultimaSim && (
           <Card className="border border-cyan-500/20">
             <h3 className="font-orbitron text-sm text-slate-300 mb-4 flex items-center gap-2">
@@ -249,7 +246,6 @@ export default function CampanhaDetalhes() {
           </Card>
         )}
 
-        {/* Charts row */}
         {simChartData.length > 1 && (
           <div className="grid lg:grid-cols-2 gap-6">
             <Card>
@@ -285,7 +281,6 @@ export default function CampanhaDetalhes() {
           </div>
         )}
 
-        {/* Regiões associadas */}
         <Card>
           <div className="flex items-center justify-between gap-3 flex-wrap mb-4">
             <h3 className="font-orbitron text-sm text-slate-300 flex items-center gap-2">
@@ -375,7 +370,6 @@ export default function CampanhaDetalhes() {
           )}
         </Card>
 
-        {/* Planos de cobertura */}
         {planos.length > 0 && (
           <Card>
             <h3 className="font-orbitron text-sm text-slate-300 mb-4 flex items-center gap-2">
@@ -400,7 +394,6 @@ export default function CampanhaDetalhes() {
           </Card>
         )}
 
-        {/* Histórico simulações */}
         {simulacoes.length > 0 && (
           <Card>
             <h3 className="font-orbitron text-sm text-slate-300 mb-4 flex items-center gap-2">

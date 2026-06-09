@@ -100,7 +100,6 @@ export default function SimulacaoPage() {
 
         {loading ? <Loading message="Carregando dados..." /> : (
           <>
-            {/* Config form */}
             <Card className="border border-cyan-500/15">
               <h3 className="font-orbitron text-sm text-slate-300 mb-5 flex items-center gap-2">
                 <Zap size={16} className="text-cyan-400" />
@@ -143,7 +142,6 @@ export default function SimulacaoPage() {
               </Button>
             </Card>
 
-            {/* Loading state */}
             {simLoading && (
               <Card className="text-center py-12">
                 <div className="flex flex-col items-center gap-4">
@@ -159,7 +157,6 @@ export default function SimulacaoPage() {
               </Card>
             )}
 
-            {/* Results */}
             {resultado && !simLoading && (
               <div className="space-y-6 animate-fadeInUp">
                 <div className="flex items-center gap-2">
@@ -168,7 +165,6 @@ export default function SimulacaoPage() {
                   <div className="h-px flex-1 bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent" />
                 </div>
 
-                {/* Key metrics */}
                 <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
                   <Card className="text-center border border-cyan-500/20">
                     <DollarSign size={24} className="text-cyan-400 mx-auto mb-2" />
@@ -200,7 +196,6 @@ export default function SimulacaoPage() {
                   </Card>
                 </div>
 
-                {/* Score + AI recommendation */}
                 <div className="grid lg:grid-cols-2 gap-6">
                   <Card className="border border-purple-500/20">
                     <h3 className="font-orbitron text-sm text-slate-300 mb-4 flex items-center gap-2">
@@ -230,7 +225,6 @@ export default function SimulacaoPage() {
                     </div>
                   </Card>
 
-                  {/* Radar chart */}
                   <Card>
                     <h3 className="font-orbitron text-sm text-slate-300 mb-4">Análise Multidimensional</h3>
                     <ResponsiveContainer width="100%" height={200}>
@@ -243,7 +237,6 @@ export default function SimulacaoPage() {
                   </Card>
                 </div>
 
-                {/* Bar chart */}
                 <Card>
                   <h3 className="font-orbitron text-sm text-slate-300 mb-4">Métricas Comparativas</h3>
                   <ResponsiveContainer width="100%" height={200}>
@@ -263,7 +256,6 @@ export default function SimulacaoPage() {
                   </ResponsiveContainer>
                 </Card>
 
-                {/* Data details */}
                 <Card className="border border-navy-border">
                   <h3 className="font-orbitron text-sm text-slate-300 mb-4">Detalhes Técnicos</h3>
                   <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 text-sm font-rajdhani">

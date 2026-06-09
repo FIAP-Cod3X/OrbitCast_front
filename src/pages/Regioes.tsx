@@ -128,7 +128,6 @@ export default function RegioesPage() {
           action={<Button icon={<Plus size={16} />} onClick={openCreate}>Nova Região</Button>}
         />
 
-        {/* Filters */}
         <div className="flex flex-wrap gap-3">
           <div className="relative flex-1 min-w-48">
             <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
@@ -248,7 +247,6 @@ export default function RegioesPage() {
           )
         )}
 
-        {/* Modal */}
         <Modal open={modalOpen} onClose={() => setModalOpen(false)} title={editId ? 'Editar Região' : 'Nova Região'} size="lg">
           <div className="grid sm:grid-cols-2 gap-4">
             <Input label="Nome *" value={form.nome} onChange={e => setForm({ ...form, nome: e.target.value })} placeholder="Ex: Comunidade Ribeirinha Norte" />
@@ -303,7 +301,6 @@ export default function RegioesPage() {
           </div>
         </Modal>
 
-        {/* Delete confirm */}
         <Modal open={!!deleteId} onClose={() => setDeleteId(null)} title="Confirmar Exclusão" size="sm">
           <p className="text-slate-300 font-rajdhani mb-6">Tem certeza que deseja excluir esta região?</p>
           <div className="flex justify-end gap-3">

@@ -2,7 +2,6 @@ import type { ReactNode, InputHTMLAttributes, SelectHTMLAttributes, TextareaHTML
 import { Loader2, X, CheckCircle, AlertTriangle, XCircle, Info } from 'lucide-react';
 import type { ToastType, ViabilidadeTipo, StatusCampanha } from '../../types';
 
-/* ── BUTTON ── */
 interface BtnProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'ghost' | 'danger';
   size?: 'sm' | 'md';
@@ -20,7 +19,6 @@ export function Button({ variant='primary', size='md', loading, icon, children, 
   );
 }
 
-/* ── INPUT ── */
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> { label?: string; error?: string; }
 export function Input({ label, error, className='', ...p }: InputProps) {
   return (
@@ -32,7 +30,6 @@ export function Input({ label, error, className='', ...p }: InputProps) {
   );
 }
 
-/* ── SELECT ── */
 interface SelProps extends SelectHTMLAttributes<HTMLSelectElement> {
   label?: string; error?: string;
   options: { value: string|number; label: string }[];
@@ -51,7 +48,6 @@ export function Select({ label, error, options, placeholder, className='', ...p 
   );
 }
 
-/* ── TEXTAREA ── */
 interface TaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> { label?: string; }
 export function Textarea({ label, className='', ...p }: TaProps) {
   return (
@@ -62,12 +58,10 @@ export function Textarea({ label, className='', ...p }: TaProps) {
   );
 }
 
-/* ── CARD ── */
 export function Card({ children, className='', style={} }: { children: ReactNode; className?: string; style?: React.CSSProperties }) {
   return <div className={`card p-5 ${className}`} style={style}>{children}</div>;
 }
 
-/* ── MODAL ── */
 export function Modal({ open, onClose, title, children, size='md' }: {
   open: boolean; onClose: () => void; title: string; children: ReactNode; size?: 'sm'|'md'|'lg';
 }) {
@@ -92,7 +86,6 @@ export function Modal({ open, onClose, title, children, size='md' }: {
   );
 }
 
-/* ── LOADING ── */
 export function Loading({ message = 'Carregando...' }: { message?: string }) {
   return (
     <div className="flex flex-col items-center justify-center gap-4 py-16">
@@ -102,7 +95,6 @@ export function Loading({ message = 'Carregando...' }: { message?: string }) {
   );
 }
 
-/* ── EMPTY STATE ── */
 export function EmptyState({ title, message, action, icon }: { title?: string; message?: string; action?: ReactNode; icon?: ReactNode }) {
   return (
     <div className="flex flex-col items-center gap-3 py-16 text-center">
@@ -114,7 +106,6 @@ export function EmptyState({ title, message, action, icon }: { title?: string; m
   );
 }
 
-/* ── ERROR ── */
 export function ErrorMessage({ message, onRetry }: { message: string; onRetry?: () => void }) {
   return (
     <div className="flex flex-col items-center gap-3 py-12 text-center">
@@ -128,7 +119,6 @@ export function ErrorMessage({ message, onRetry }: { message: string; onRetry?: 
   );
 }
 
-/* ── STATUS BADGE ── */
 const statusMap: Record<StatusCampanha, { label: string; cls: string }> = {
   PLANEJADA: { label: 'Planejada', cls: 'badge badge-blue' },
   EM_ANALISE: { label: 'Em Análise', cls: 'badge badge-yellow' },
@@ -141,7 +131,6 @@ export function StatusBadge({ status }: { status: StatusCampanha }) {
   return <span className={c.cls}>{c.label}</span>;
 }
 
-/* ── VIABILIDADE BADGE ── */
 const viabMap: Record<ViabilidadeTipo, { label: string; cls: string }> = {
   ALTA: { label: 'Alta', cls: 'badge badge-green' },
   MEDIA: { label: 'Média', cls: 'badge badge-yellow' },
@@ -152,7 +141,6 @@ export function ViabilidadeBadge({ viabilidade }: { viabilidade: ViabilidadeTipo
   return <span className={c.cls}>{c.label}</span>;
 }
 
-/* ── TOAST ── */
 const toastStyle: Record<ToastType, { icon: ReactNode; border: string; bg: string }> = {
   success: { icon: <CheckCircle size={16} className="shrink-0 text-[var(--success)]" />, border: 'rgba(72,187,120,0.3)', bg: 'rgba(72,187,120,0.06)' },
   error: { icon: <XCircle size={16} className="shrink-0 text-[var(--danger)]" />, border: 'rgba(252,129,129,0.3)', bg: 'rgba(252,129,129,0.06)' },
@@ -175,7 +163,6 @@ export function ToastItem({ message, type, onClose }: { message: string; type: T
   );
 }
 
-/* ── METRIC CARD ── */
 export function MetricCard({ label, value, icon, color='var(--accent)', subtitle }: {
   label: string; value: string|number; icon: ReactNode; color?: string; subtitle?: string;
 }) {
@@ -191,7 +178,6 @@ export function MetricCard({ label, value, icon, color='var(--accent)', subtitle
   );
 }
 
-/* ── PAGE HEADER ── */
 export function PageHeader({ title, subtitle, action, icon }: {
   title: string; subtitle?: string; action?: ReactNode; icon?: ReactNode;
 }) {
@@ -209,7 +195,6 @@ export function PageHeader({ title, subtitle, action, icon }: {
   );
 }
 
-/* ── SCORE RING ── */
 export function ScoreRing({ score, size=72 }: { score: number; size?: number }) {
   const r = (size - 10) / 2;
   const circ = 2 * Math.PI * r;
@@ -231,5 +216,4 @@ export function ScoreRing({ score, size=72 }: { score: number; size?: number }) 
   );
 }
 
-// Alias
 export const SectionHeader = PageHeader;

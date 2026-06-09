@@ -21,7 +21,6 @@ export default function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-[100] flex h-14 items-center border-b border-[var(--border)] bg-[#080c14eb] backdrop-blur-xl">
       <div className="grid w-full grid-cols-[220px_minmax(0,1fr)_220px] items-center gap-4 px-6 max-[1100px]:flex max-[1100px]:justify-between">
-        {/* Logo */}
         <Link to="/" className="flex shrink-0 items-center gap-2.5 no-underline">
           <div className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-full bg-[radial-gradient(circle_at_40%_40%,#4a9eff,#1a3a6b)] shadow-[0_0_12px_rgba(74,158,255,0.4)]">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
@@ -35,7 +34,6 @@ export default function Navbar() {
           </span>
         </Link>
 
-        {/* Desktop nav */}
         <nav className="flex items-center justify-center gap-1 justify-self-center max-[1100px]:hidden">
           {links.map(l => {
             const active = l.to === '/' ? pathname === '/' : pathname.startsWith(l.to);
@@ -55,7 +53,6 @@ export default function Navbar() {
           })}
         </nav>
 
-        {/* Right */}
         <div className="flex shrink-0 items-center justify-end gap-3 justify-self-end">
           <Link to="/simulacao" className="btn-primary btn-sm rounded-[7px] max-[1100px]:hidden">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -64,7 +61,6 @@ export default function Navbar() {
             Simular Agora
           </Link>
 
-          {/* Mobile menu btn */}
           <button
             className="hidden cursor-pointer border-0 bg-transparent p-1 text-[var(--text-muted)] max-[1100px]:flex"
             onClick={() => setOpen(!open)}
@@ -75,7 +71,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile menu */}
       {open && (
         <div className="absolute inset-x-0 top-14 flex flex-col gap-1 border-b border-[var(--border)] bg-[#080c14fa] px-4 pb-4 pt-3">
           {links.map(l => {

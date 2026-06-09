@@ -133,7 +133,6 @@ export default function CampanhasPage() {
           }
         />
 
-        {/* Search */}
         <Input
           placeholder="Buscar campanhas..."
           value={search}
@@ -196,7 +195,6 @@ export default function CampanhasPage() {
           </>
         )}
 
-        {/* Create/Edit modal */}
         <Modal
           open={modalOpen}
           onClose={() => setModalOpen(false)}
@@ -257,7 +255,6 @@ export default function CampanhasPage() {
           </div>
         </Modal>
 
-        {/* Delete confirm */}
         <Modal open={!!deleteId} onClose={() => setDeleteId(null)} title="Confirmar Exclusão" size="sm">
           <p className="text-slate-300 font-rajdhani mb-6">Tem certeza que deseja excluir esta campanha? Esta ação não pode ser desfeita.</p>
           <div className="flex justify-end gap-3">

@@ -64,7 +64,6 @@ export default function DashboardPage() {
           }
         />
 
-        {/* Metrics */}
         <div className="mb-6 grid grid-cols-[repeat(auto-fit,minmax(170px,1fr))] gap-3">
           <div className="anim-fade-up delay-1"><MetricCard label="Clientes" value={resumo?.totalClientes ?? 0} icon={<Users size={18}/>} color="var(--accent)" /></div>
           <div className="anim-fade-up delay-2"><MetricCard label="Campanhas" value={resumo?.totalCampanhas ?? 0} icon={<Radio size={18}/>} color={COLORS.purple} /></div>
@@ -74,9 +73,7 @@ export default function DashboardPage() {
           <div className="anim-fade-up delay-6"><MetricCard label="Qualidade Média" value={`${(resumo?.qualidadeMediaSinal??0).toFixed(1)}%`} icon={<Activity size={18}/>} color={COLORS.red} subtitle="do sinal" /></div>
         </div>
 
-        {/* Charts row */}
         <div className="chart-grid mb-4 grid grid-cols-3 gap-4">
-          {/* Area chart */}
           <div className="card col-span-2 p-5 anim-fade-up delay-1">
             <p className="section-title mb-4">Histórico de Simulações</p>
             {simChart.length > 0 ? (
@@ -104,7 +101,6 @@ export default function DashboardPage() {
             ) : <div className="flex h-[200px] items-center justify-center text-sm text-[var(--text-dim)]">Sem simulações ainda</div>}
           </div>
 
-          {/* Viabilidade pie */}
           <div className="card p-5 anim-fade-up delay-2">
             <p className="section-title mb-4">Viabilidade</p>
             {viabData.length > 0 ? (
@@ -133,9 +129,7 @@ export default function DashboardPage() {
           </div>
         </div>
 
-        {/* Status bar chart + table */}
         <div className="bottom-grid grid grid-cols-[1fr_1.6fr] gap-4">
-          {/* Status chart */}
           <div className="card p-5 anim-fade-up delay-3">
             <p className="section-title mb-4">Campanhas por Status</p>
             {statusData.length > 0 ? (
@@ -153,7 +147,6 @@ export default function DashboardPage() {
             ) : <div className="flex h-[180px] items-center justify-center text-sm text-[var(--text-dim)]">Sem dados</div>}
           </div>
 
-          {/* Campanhas recentes */}
           <div className="card p-5 anim-fade-up delay-4">
             <div className="mb-4 flex items-center justify-between">
               <p className="section-title">Campanhas Recentes</p>
@@ -179,7 +172,6 @@ export default function DashboardPage() {
           </div>
         </div>
 
-        {/* Last simulations */}
         {simulacoes.length > 0 && (
           <div className="mt-4">
             <div className="card p-5 anim-fade-up">

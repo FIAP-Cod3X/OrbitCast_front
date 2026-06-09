@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import { Zap, Globe, Brain, Shield, BarChart3, Radio, ArrowRight } from 'lucide-react';
 import PublicLayout from '../layouts/PublicLayout';
 
-/* Canvas star field + nebula are done with CSS/SVG — no canvas needed */
 
 const stats = [
   { value: '18', label: 'Regiões cadastradas' },
@@ -23,20 +22,17 @@ const features = [
 export default function HomePage() {
   return (
     <PublicLayout>
-      {/* ── HERO ── */}
       <section style={{
         position: 'relative', minHeight: 'calc(100vh - var(--nav-h))',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
         overflow: 'hidden',
       }}>
 
-        {/* Deep space background */}
         <div style={{
           position: 'absolute', inset: 0,
           background: 'radial-gradient(ellipse 80% 60% at 50% 0%, #0a1628 0%, #050810 55%, #000000 100%)',
         }} />
 
-        {/* Nebula blobs */}
         <div style={{
           position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none',
         }}>
@@ -60,9 +56,7 @@ export default function HomePage() {
           }} />
         </div>
 
-        {/* SVG Stars */}
         <svg style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', pointerEvents: 'none' }} xmlns="http://www.w3.org/2000/svg">
-          {/* Static star field — 80 stars at various positions/sizes */}
           {[
             [8,12,1.2,0.9],[15,35,0.8,0.6],[23,8,1.5,1],[31,55,0.7,0.5],[42,22,1.1,0.8],
             [55,45,0.9,0.7],[63,18,1.3,0.9],[71,72,0.8,0.6],[78,38,1.0,1],[85,15,1.4,0.8],
@@ -87,7 +81,6 @@ export default function HomePage() {
               style={{ animation: `twinkle ${2.5 + (i % 5) * 0.7}s ease-in-out ${(i % 8) * 0.3}s infinite` }}
             />
           ))}
-          {/* A few bright stars */}
           {[[10,20],[35,60],[65,15],[80,70],[50,35]].map(([x,y],i) => (
             <g key={`bright-${i}`}>
               <circle cx={`${x}%`} cy={`${y}%`} r="1.5" fill="white" opacity="0.9" />
@@ -96,7 +89,6 @@ export default function HomePage() {
           ))}
         </svg>
 
-        {/* Orbit rings decoration */}
         <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none' }}>
           <div style={{
             width: 600, height: 600, border: '1px solid rgba(74,158,255,0.06)',
@@ -108,7 +100,6 @@ export default function HomePage() {
             borderRadius: '50%', position: 'absolute',
             animation: 'orbit-ring 40s linear infinite reverse',
           }} />
-          {/* Small satellite dot on the ring */}
           <div style={{
             width: 600, height: 600, position: 'absolute',
             animation: 'orbit-ring 60s linear infinite',
@@ -122,7 +113,6 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Hero content */}
         <div style={{ position: 'relative', zIndex: 10, textAlign: 'center', padding: '0 24px', maxWidth: 760, width: '100%' }}>
           <div className="anim-fade-up" style={{
             display: 'inline-flex', alignItems: 'center', gap: 8,
@@ -171,7 +161,6 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Bottom fade */}
         <div style={{
           position: 'absolute', bottom: 0, left: 0, right: 0, height: 120,
           background: 'linear-gradient(to bottom, transparent, var(--bg))',
@@ -179,7 +168,6 @@ export default function HomePage() {
         }} />
       </section>
 
-      {/* ── STATS ── */}
       <section style={{ background: 'var(--bg)', padding: '0 24px 80px' }}>
         <div style={{ maxWidth: 900, margin: '0 auto' }}>
           <div style={{
@@ -204,7 +192,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── FEATURES ── */}
       <section style={{ background: 'var(--bg-2)', padding: '80px 24px' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: 56 }}>
@@ -234,7 +221,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── FOR WHOM ── */}
       <section style={{ background: 'var(--bg)', padding: '80px 24px' }}>
         <div style={{ maxWidth: 900, margin: '0 auto', textAlign: 'center' }}>
           <h2 className="font-display anim-fade-up" style={{ fontSize: 'clamp(24px, 3.5vw, 34px)', fontWeight: 700, color: 'white', letterSpacing: '-0.02em', marginBottom: 16 }}>
@@ -263,7 +249,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── CTA ── */}
       <section style={{ background: 'var(--bg-2)', padding: '80px 24px' }}>
         <div style={{
           maxWidth: 700, margin: '0 auto', textAlign: 'center',
@@ -273,7 +258,6 @@ export default function HomePage() {
           background: 'radial-gradient(ellipse at top, rgba(74,158,255,0.06) 0%, transparent 70%)',
           position: 'relative', overflow: 'hidden',
         }}>
-          {/* Planet icon */}
           <div style={{ fontSize: 48, marginBottom: 20 }} className="anim-float">🛰️</div>
           <h2 className="font-display" style={{ fontSize: 'clamp(22px, 3.5vw, 32px)', fontWeight: 700, color: 'white', marginBottom: 14, letterSpacing: '-0.02em' }}>
             Pronto para simular?
@@ -289,7 +273,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── FOOTER ── */}
       <footer style={{
         background: 'var(--bg)', borderTop: '1px solid var(--border)',
         padding: '24px', textAlign: 'center',

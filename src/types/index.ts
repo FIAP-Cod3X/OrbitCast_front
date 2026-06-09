@@ -1,4 +1,3 @@
-// ===================== ENTITY TYPES =====================
 
 export interface Cliente {
   id: number;
@@ -90,7 +89,6 @@ export interface DashboardResumo {
   simulacoesPorViabilidade: Record<ViabilidadeTipo, number>;
 }
 
-// ===================== API RESPONSE TYPES =====================
 
 export interface ApiError {
   status: number;
@@ -105,7 +103,6 @@ export type ApiResponse<T> = {
   loading: boolean;
 };
 
-// ===================== FORM TYPES =====================
 
 export interface CampanhaFormData {
   clienteId: number;
@@ -132,7 +129,6 @@ export interface RegiaoFormData {
   prioridadeSocial: number;
 }
 
-// ===================== UI TYPES =====================
 
 export type SidebarItem = {
   label: string;
@@ -158,7 +154,6 @@ export interface Toast {
   message: string;
 }
 
-// ===================== UNION & INTERSECTION TYPES =====================
 
 export type LoadingState = 'idle' | 'loading' | 'success' | 'error';
 
